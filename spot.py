@@ -7,32 +7,34 @@ class GraphNode:
 
     def __init__(self, row, column, node_type='N'):
         self.node_type = node_type
-        self.prev_node = ''
+        self.prev_node = ()
         self.fixed = False
 
         self.g = self.MAX_DIST
         self.h = self.MAX_DIST
         self.f = self.MAX_DIST
         self.neighbours = []
-        self.set_neighbours(row, column)
 
-    def set_neighbours(self, i, j):
-        if j<MAX_COLUMN:
+    def set_neighbours(self, i, j, grid):
+        if j+1<MAX_COLUMN and grid[i][j].node_type != 'W' :
             # RIGHT
             self.neighbours.append((i, j+1))
-        if i<MAX_ROW:
+        if i+1<MAX_ROW and grid[i][j].node_type != 'W':
             # BOTTOM
             self.neighbours.append((i+1, j))
-        if j>=0:
+        if j-1>=0 and grid[i][j].node_type != 'W':
             # LEFT
             self.neighbours.append((i, j-1))
-        if i>=0:
+        if i-1>=0 and grid[i][j].node_type != 'W':
             # TOP
             self.neighbours.append((i-1, j))
 
     
     # def get_node_type(self):
     #     return self.node_type
+
+    def update_f(self):
+        self.f = self.g+self.h
 
     def set_as_start_node(self):
         self.node_type = 'S'
@@ -52,11 +54,11 @@ class GraphNode:
         self.h = 0
         self.f = 0
 
-    def displacement_bw_nodes(self, node_a, node_b, start_node_x):
-        b_col_minus_a_col_squared = (node_b.column - node_a.column)**2
-        b_row_minus_a_row_squared = (node_b.row - node_a.row)**2
-        displacement = sqrt(b_col_minus_a_col_squared + b_row_minus_a_row_squared)
-        return displacement
+def displacement_bw_nodes(node_a, node_b):
+    b_col_minus_a_col_squared = (node_b[1] - node_a[1])**2
+    b_row_minus_a_row_squared = (node_b[0] - node_a[0])**2
+    displacement = sqrt(b_col_minus_a_col_squared + b_row_minus_a_row_squared)
+    return int(displacement)
 
 # class Graph:
 def make_grid():
