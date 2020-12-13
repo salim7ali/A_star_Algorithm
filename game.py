@@ -75,13 +75,15 @@ class InterfaceGrid:
     def show_result_path(self):
         row = self.end_node[0]
         column = self.end_node[1]
-        while (row, column) != self.start_node:
+        # while (row, column) != self.start_node:
+        while True:
             print(f"({row}, {column}) -> ", end=' ')
             try:
                 (row, column) = self.grid[row][column].prev_node
+                if (row, column) != self.start_node:
+                    self.grid[row][column].node_type = 'P'
             except ValueError:
                 break
-            self.grid[row][column].node_type = 'P'
             
 
             
