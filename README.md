@@ -1,9 +1,14 @@
-A star pathfinding algorithm
+# **A star pathfinding algorithm.**
+All components from the pygame grid interface to the A* pathfinding algorithm implementation were # **self implemented**.
 
-Implemented in Windows 10, py 3.6.9
-Activate conda environment 
-Steps:
+- A single source shortest path alogrithm based on the Dijkstra's algorithm. Adds onto Dijkstra's algorithm by using a heuristics based approach.
+- Implemented in Windows 10, py 3.6.9.
 
+## **Steps to Setup:**
+- Make sure to activate conda environment provided in the repo: `conda activate .\envs`
+- To run application `python game.py`
+
+## **Steps to Play:**
 1.Choose Start node:
 ![start node](/screenshot_1.PNG?raw=true "Optional Title")
 
