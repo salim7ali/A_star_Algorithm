@@ -3,6 +3,7 @@ All components from the pygame grid interface to the A* pathfinding algorithm im
 
 - A Graph traversal and path search algorithm based on the Dijkstra's algorithm. Adds onto Dijkstra's algorithm by using a heuristics based approach.
 - Implemented in Windows 10, py 3.6.9.
+- Algorithm formula: **f(n) = g(n) + h(n)**
 
 ## **Steps to Setup:**
 - Make sure to activate conda environment provided in the repo: `conda activate .\envs`
