@@ -1,7 +1,7 @@
 # **A star pathfinding algorithm.**
 All components from the pygame grid interface to the A* pathfinding algorithm implementation were # **self implemented**.
 
-- A single source shortest path alogrithm based on the Dijkstra's algorithm. Adds onto Dijkstra's algorithm by using a heuristics based approach.
+- A Graph traversal and path search algorithm based on the Dijkstra's algorithm. Adds onto Dijkstra's algorithm by using a heuristics based approach.
 - Implemented in Windows 10, py 3.6.9.
 
 ## **Steps to Setup:**
