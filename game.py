@@ -12,6 +12,8 @@ class InterfaceGrid:
     GREEN = (0, 255, 0)      # end node     4
     RED = (255, 0, 0)        # start node   5
 
+    NO_OF_WALLS = 20
+
     WIDTH = 20
     HEIGHT = 20
     MARGIN = 5
@@ -44,7 +46,7 @@ class InterfaceGrid:
             if event.type == pygame.QUIT:  # If user clicked close
                 global close_window
                 close_window = True  # Flag that we are done so we exit this loop
-            elif event.type == pygame.MOUSEBUTTONDOWN and self.wall_count<10:
+            elif event.type == pygame.MOUSEBUTTONDOWN and self.wall_count<self.NO_OF_WALLS:
                 # User clicks the mouse. Get the position
                 pos = pygame.mouse.get_pos()
                 # Change the x/y screen coordinates to grid coordinates
@@ -65,7 +67,7 @@ class InterfaceGrid:
                     # import pdb;pdb.set_trace()
                     self.grid[row][column].set_as_wall()
                     self.wall_count += 1
-            elif self.wall_count >=10 and grid_filled==False:
+            elif self.wall_count >=self.NO_OF_WALLS and grid_filled==False:
                 for row in range(10):
                     for column in range(10):   
                         self.grid[row][column].set_neighbours(row, column, self.grid)
